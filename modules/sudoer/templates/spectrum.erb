@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias SPECTRUM_CMDS = /opt/iso/spectrum/installer, /etc/init.d/processd stop, /etc/init.d/processd start, /etc/init.d/processd restart, /sbin/reboot, /bin/cp -rp /opt/CA/spectrum /opt/CA/spectrum.backup, /bin/mv /opt/CA/spectrum /opt/CA/spectrum.backed_out, /bin/mv /opt/CA/spectrum.backup /opt/CA/spectrum, /opt/CA/patches/*, /bin/cp /opt/NAS/CA/patches/* /opt/CA/patches/*, /bin/rm -rf /opt/CA/patches/*, /bin/mount -o loop,ro /opt/NAS/CA/iso/* /opt/iso/spectrum/*, /bin/umount /opt/iso/spectrum/*
+
+spectrum ALL = (root) NOPASSWD : SPECTRUM_CMDS
+

@@ -1,0 +1,39 @@
+#
+# This is the configuration file for the LDAP nameservice
+# switch library and the LDAP PAM module.
+#
+host ldap1.ch.example.com ldap2.ch.example.com
+base dc=example,dc=com
+
+sudoers_base ou=SUDOers,dc=example,dc=com
+
+timelimit 20
+bind_timelimit 15
+idle_timelimit 3600
+
+nss_reconnect_tries 4
+nss_reconnect_sleeptime 1
+nss_reconnect_maxsleeptime 16
+nss_reconnect_maxconntries 2
+
+pam_filter objectclass=posixAccount
+pam_login_attribute uid
+pam_lookup_policy yes
+pam_password exop
+
+nss_base_passwd ou=People,dc=example,dc=com?one
+nss_base_shadow ou=People,dc=example,dc=com?one
+nss_base_group ou=Group,dc=example,dc=com?one
+nss_base_netgroup ou=Netgroup,dc=example,dc=com?one
+
+nss_initgroups_ignoreusers root,ldap,named,haldaemon,rpc,dbus,ntp,tomcat,resin,apache,mule
+
+ssl start_tls
+tls_cacertfile /etc/openldap/cacerts/UUtopiaCA.crt
+tls_cert /etc/openldap/cacerts/<%= host_to_cert>.crt
+#unx001.idx.dmz.com.crt
+tls_key /etc/openldap/cacerts/<%= host_to_cert>.key
+
+#unx001.idx.dmz.com.key
+
+

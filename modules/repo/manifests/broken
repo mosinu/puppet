@@ -1,0 +1,66 @@
+class repo::dev_rhel5_x86_64 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/dev.cobbler-config_rhel5_x86_64.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+
+class repo::dev_rhel5_i386 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/dev.cobbler-config_rhel5_i386.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+
+class repo::dev_rhel6_x86_64 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/dev.cobbler-config_rhel6_x86_64.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+
+class repo::prod_rhel5_x86_64 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/prod.cobbler-config_rhel5_x86_64.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+
+class repo::prod_rhel5_i386 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/prod.cobbler-config_rhel5_i386.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+
+class repo::prod_rhel6_x86_64 {
+   file { "/etc/yum.repos.d/cobbler-config.repo":
+      ensure => present,
+      source => "puppet://$puppetserver/modules/repo/prod.cobbler-config_rhel6_x86_64.repo",
+      owner => "root",
+      group => "root",
+      mode => "0644"
+   }
+
+}
+

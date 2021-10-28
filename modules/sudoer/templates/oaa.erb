@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias OAA_CMDS = /bin/chown -R applmgr.oaa /opt/applmgr* , /bin/chown applmgr.oaa /opt/applmgr* , /bin/chown -R applmgr.oaa /opt/NAS/oracle_patches/applmgr*
+
+applmgr ALL = (root) NOPASSWD : OAA_CMDS
+

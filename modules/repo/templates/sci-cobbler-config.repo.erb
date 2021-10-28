@@ -1,0 +1,48 @@
+[core]
+name=core
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/<%= operatingsystem %>/<%= operatingsystemrelease %>/<%= architecture %>
+enabled=1
+gpgcheck=0
+priority=1
+
+[addons]
+name=addons
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/<%= operatingsystem %>/<%= operatingsystemrelease %>/<%= architecture %>/addons
+enabled=0
+gpgcheck=0
+priority=1
+
+[external_products]
+name=external_products
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/<%= operatingsystem %>/<%= operatingsystemrelease %>/<%= architecture %>/external_products
+enabled=0
+gpgcheck=0
+priority=1
+
+[updates]
+name=updates
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/<%= operatingsystem %>/<%= operatingsystemrelease %>/<%= architecture %>/updates
+enabled=0
+gpgcheck=0
+priority=1
+
+[Carquest]
+name=Carquest
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Carquest
+enabled=1
+priority=99
+gpgcheck=0
+
+[Carquest-<%= operatingsystemrelease %>]
+name=Carquest
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Carquest-<%= operatingsystemrelease %>
+enabled=1
+priority=99
+gpgcheck=0
+
+[Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>]
+name=Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>
+enabled=1
+priority=99
+gpgcheck=0

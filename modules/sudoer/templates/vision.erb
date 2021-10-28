@@ -1,0 +1,4 @@
+Cmnd_Alias VISION = /bin/su - vision , /bin/su - axis , /bin/su - visiond , /etc/rc.d/init.d/tomcat5 * , /etc/rc.d/init.d/mysql * , /usr/bin/mysql * , /bin/su - tomcat5
+
+%unix-vision-application ALL = (root) NOPASSWD : VISION
+%visiond ALL = (root) NOPASSWD : VISION

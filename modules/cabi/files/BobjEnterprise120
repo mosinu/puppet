@@ -1,0 +1,112 @@
+#!/bin/sh
+#
+# Copyright (c) 2000-2004 by Business Objects
+# All rights reserved.
+#
+#ident  "@(#)Business Objects 12.0 init script"
+#
+# Init information for "insserv" on SUSE:
+### BEGIN INIT INFO
+# Provides:          BusinessObjects120
+# Required-Start:    $syslog $network
+# Should-Start:      ypbind
+# Required-Stop:     $syslog $network
+# Should-Stop: $time ypbind
+# Default-Start:     3 5
+# Default-Stop:      0 1 2 6
+# Short-Description: Start servers for BusinessObjects Enterprise
+### END INIT INFO
+#
+
+########################################################################
+########################################################################
+
+# This file is managed by puppet.  Do not edit!
+
+########################################################################
+########################################################################
+
+[ ! -d /usr/bin ] && exit
+
+# On RedHat AS 3 and above, use runuser rather than su
+SU="su"
+if [ -f "/etc/redhat-release" -a -x "/sbin/runuser" ]; then
+    SU="/sbin/runuser"
+fi
+
+if [ -f "/etc/redhat-release" ]; then
+        Lockfile=/var/lock/subsys/BobjEnterprise120
+fi
+#
+# Start/stop processes required for BusinessObjects Enterprise 12.0
+#
+
+
+PATH="$PATH:/bin:/usr/bin"
+export PATH
+
+case "$1" in
+'start')
+
+        # setup the bobje dir
+        BOBJEDIR="/opt/CA/SharedComponents/CommonReporting3/bobje/"
+
+        # Source the env.sh file
+        . "$BOBJEDIR"/setup/env.sh
+
+        # Source the ccm.config file
+        . "$BOBJEDIR"/ccm.config
+                                
+        if [ -d "$BOBJEDIR"/tomcat ]; then
+            $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR"/tomcatstartup.sh
+            logger -p daemon.info -t bobj "Started Tomcat"
+        fi
+        if [ -d "$BOBJEDIR"/mysql ]; then
+            $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR"/mysqlstartup.sh
+            logger -p daemon.info -t bobj "Started MySQL server"
+        fi
+
+        $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR/ccm.sh -start all"
+
+        logger -p daemon.info -t bobj "Started servers"
+        
+        if [ -f "/etc/redhat-release" ]; then
+                touch $Lockfile 
+        fi
+        ;;
+
+'stop')
+        # setup the bobje dir
+        BOBJEDIR="/opt/CA/SharedComponents/CommonReporting3/bobje/"
+
+        # Source the env.sh file
+        . "$BOBJEDIR"/setup/env.sh
+
+        # Source the ccm.config file
+        . "$BOBJEDIR"/ccm.config
+ 
+        $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR/ccm.sh -stop all"
+        $SU "$BOBJEUSERNAME" -c "mwadm stop -f"
+        $SU "$BOBJEUSERNAME" -c "XvfbDaemon -c"
+        logger -p daemon.info -t bobj "Stopped servers"
+        
+        if [ -d "$BOBJEDIR"/tomcat ]; then
+            $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR"/tomcatshutdown.sh
+            logger -p daemon.info -t bobj "Stopped Tomcat"
+        fi
+        if [ -d "$BOBJEDIR"/mysql ]; then
+            $SU - "$BOBJEUSERNAME" -c "$BOBJEDIR/mysqlshutdown.sh DATABASEUID=\"cabiadm\" DATABASEPWD=\"Admcabi2\""
+            logger -p daemon.info -t bobj "Stopped MySQL server"
+        fi
+            
+        if [ -f "/etc/redhat-release" ]; then
+                rm -f $Lockfile
+        fi
+        ;;
+
+*)
+        echo "Usage: $0 { start | stop }"
+        exit 1
+        ;;
+esac
+exit 0

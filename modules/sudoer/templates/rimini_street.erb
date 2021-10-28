@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias RIMINI_STREET_CMDS = /bin/su applmgr, /bin/su - applmgr
+
+%unix-rimini-street ALL = (root) NOPASSWD : RIMINI_STREET_CMDS
+

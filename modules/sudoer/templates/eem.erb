@@ -1,0 +1,14 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias EEM_CMDS = /bin/cp /opt/NAS/CA/eem/* /opt/CA/eem_install/*, /opt/CA/eem_install/*
+
+dsa ALL = (root) NOPASSWD : EEM_CMDS

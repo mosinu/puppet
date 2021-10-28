@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias EHEALTH_CMDS = /opt/NAS/iso/eHealth_630_Oracle_10204_Base_Linux/runInstaller, /opt/NAS/iso/eHealth_630_Oracle_10204_Update_Linux/Install, /opt/NAS/iso/eh630/Install.cq.sh, /sbin/reboot, /etc/init.d/httpd*
+
+ehealth ALL = (root) NOPASSWD : EHEALTH_CMDS
+

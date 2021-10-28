@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias OMD_CMDS = /bin/su dev, /bin/su - dev
+
+%unix-mysql-dba ALL = (root) NOPASSWD : OMD_CMDS
+

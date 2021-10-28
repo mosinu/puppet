@@ -1,0 +1,8 @@
+Cmnd_Alias EXPLORIS_ADMIN_CMDS = /bin/su expsupp , /bin/su - expsupp , /bin/su custom , /bin/su - custom , /bin/su ftpuser , /bin/su - ftpuser , /usr/local/bin/create_exp_htdocs_links.sh , /usr/bin/less /var/log/httpd/access_log , /usr/bin/less /var/log/httpd/error_log , /sbin/service httpd * , /sbin/service crond * , /usr/local/zend/bin/gui_passwd.sh , /bin/su mysql , /bin/su - mysql
+Cmnd_Alias EXPLORIS_APP_CMDS = /bin/su expadmin , /bin/su - expadmin , /bin/su expsupp , /bin/su - expsupp , /bin/su custom , /bin/su - custom , /bin/su ftpuser , /bin/su - ftpuser , /sbin/service mysqld * , /sbin/service httpd * , /sbin/service httpd *, /bin/su mysql , /bin/su - mysql
+Cmnd_Alias EXPLORIS_CMDS = /bin/su expadmin , /bin/su - expadmin , /bin/su expsupp , /bin/su - expsupp , /bin/su custom , /bin/su - custom , /bin/su ftpuser , /bin/su - ftpuser , /usr/local/bin/create_exp_htdocs_links.sh , /usr/bin/less /var/log/httpd/access_log , /usr/bin/less /var/log/httpd/error_log
+
+%expadmin ALL = (root) NOPASSWD : EXPLORIS_CMDS
+%unix-exploris-application ALL = (root) NOPASSWD : EXPLORIS_APP_CMDS
+expadmin ALL = (root) NOPASSWD : EXPLORIS_ADMIN_CMDS
+

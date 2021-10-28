@@ -1,0 +1,15 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+#
+#    <%= puppetserver %>
+#
+# CHANGES TO THIS FILE WILL BE OVERWRITTEN
+#
+#    <%= environment %>    
+#
+127.0.0.1 localhost.localdomain localhost
+::1 localhost6.localdomain6 localhost6
+
+<% scope.lookupvar('interfaces').split(",").each do |interface| %><%= ipnumber = [ scope.lookupvar('ipaddress_'+interface ) ] %> fqdn = inline_template("<%_erbout.concat(Resolv::DNS.open.getname( scope.lookupvar('ipaddress_'+interface ) ).to_s ) %>") <%= scope.lookupvar( 'fqdn' ) %> <%= scope.lookupvar('hostname') %>
+<% end %>
+

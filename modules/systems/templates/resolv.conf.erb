@@ -1,0 +1,15 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+#
+#    <%= puppetserver %>
+#
+# CHANGES TO THIS FILE WILL BE OVERWRITTEN
+#
+# <%= environment %> RESOLV.CONF
+#  
+domain gpi.com
+search gpi.com
+<% servers_real.each do |server| -%>
+nameserver <%= server %>
+<% end -%>
+

@@ -1,0 +1,46 @@
+#!/bin/bash
+# Starts and stops Xvfb
+# chkconfig: 2345 99 02
+# description: Xvfb
+# processname: Xvfb
+
+
+# User to run everything as
+USER=applmgr
+
+# Source function library.
+export LANG=C
+. /etc/init.d/functions
+
+case "$1" in
+start)
+
+	/bin/su -c '/usr/local/bin/xvfb.sh' -s /bin/bash $USER > /dev/null 2>&1
+;;
+
+stop)
+	
+	/bin/kill -9 `pidof Xvfb`
+	/bin/kill -9 `pidof mwm`
+;;
+
+restart)
+  	$0 stop
+  	$0 start
+;;
+
+status)
+             if pidof -o %PPID Xvfb > /dev/null; then
+                     echo "Running"
+                     exit 0
+             else
+                     echo "Not running"
+                     exit 1
+             fi
+;;
+
+*)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+esac
+

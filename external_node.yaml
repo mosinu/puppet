@@ -1,0 +1,6 @@
+base: /etc/puppet/manifests/nodes
+cobbler: <%= cobbler_host %>
+no_yaml: puppet::noyaml
+no_cobbler: network::nocobbler
+bad_yaml: puppet::badyaml
+unmanaged: network::unmanaged

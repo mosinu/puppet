@@ -1,0 +1,14 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+
+%unix-idm ALL = (root) NOPASSWD : EDIR_CMDS
+
+Cmnd_Alias EDIR_CMDS = /opt/novell/eDirectory/bin/ndspath, /usr/bin/tail /opt/novell/GPI_QA/log/*, /usr/bin/less /opt/novell/GPI_QA/log/*, /etc/rc.d/init.d/ndsd, /bin/cd /opt/novell/, /bin/ls /opt/novell/, /opt/NAS/edir/eDirectory/setup/nds-install, /opt/NAS/edir/eDirectory/setup/nds-uninstall

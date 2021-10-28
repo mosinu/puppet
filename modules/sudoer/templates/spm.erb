@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias SPM_CMDS = /etc/init.d/sysedge stop, /etc/init.d/sysedge start, /bin/cp /opt/EMPsysedge/config/port1691/plugins/svcrsp/jcollector.log /opt/CA/patches, /bin/chmod 755 /opt/CA/patches/jcollector.log
+
+%entmon ALL = (root) NOPASSWD : SPM_CMDS
+

@@ -1,0 +1,95 @@
+[Bootstrap]
+LibraryName=ldapauth.so
+Enable=1
+InitializationString=LDAP
+
+[Settings]
+MaxConcurrent=1
+Timeout=20
+ConnectTimeout=25
+QueryTimeout=10
+WaitReconnect=2
+MaxWaitReconnect=360
+;BindName=uid=<User-Name>, ou=sales, o=bigco.com
+LogLevel = 2 
+UpperCaseName = 0
+PasswordCase=original
+PasswordFormat = 0
+Search = DoLdapSearch
+SSL = 0
+;MaxScriptSteps = 10000
+;ScriptTraceLevel = 0
+;FilterSpecialCharacterHandling = 0
+;ShutdownTimeout = 1
+ChaseReferrals=0
+
+[NDS]
+;Enable = 1
+;AllowExpiredAccountsForUsers = 0
+;ProfileForExpiredUsers = profile1
+;AllowGraceLoginsForUsers = 1
+;ProfileForGraceLoginUsers = profile2
+
+[Server]
+s1=
+s2=
+
+[Server/s1]
+Host=10.130.6.1
+Port = 389 
+BindName=CN=sbr_ldap,OU=Service Accounts,DC=gpi,DC=com
+BindPassword=t8!ZT8sk
+
+[Server/s2]
+Host=10.130.6.2
+Port = 389
+BindName=CN=sbr_ldap,OU=Service Accounts,DC=gpi,DC=com
+BindPassword=t8!ZT8sk
+LastResort = 1
+
+[Failure]
+;Accept=0
+;Profile=xyz
+;FullName=Remote User
+
+[Request]
+%UserName = User-Name
+;Service-Type = 
+;%NASName = nameofnas
+;%NASAddress =
+
+[Response]
+;Filter-Id = 
+;Session-Timeout = 
+;%FullName = 
+;%Password =  
+
+[Search/DoLdapSearch]
+;Bind=CN=AD-WEBSURFING,OU=Service Accounts,OU=Administrative Accounts,OU=EIB - Delegation,DC=beilux,DC=eib,DC=org
+;password=Eib-ItseC-2010$
+Base=DC=gpi,DC=com
+Scope = 2
+Filter = sAMAccountName=<User-Name>
+Attributes = AttrList
+Timeout = 20
+%DN = dn
+
+[Attributes/AttrList]
+;Filter-Id
+;Session-Timeout
+;thepasswordis
+
+[Search/AuthenticateUser]
+; bind using the DN retrieved in doldapsearch
+; Bind = <dn>
+;You do not have to supply the password SBR knows to use the one received in the auth request.
+;Setting the base to the DN saves time by going straight to the point.
+Base =DC=gpi,DC=com
+Scope = 2
+Filter = sAMAccountName=<User-Name>
+;Filter=(&(sAMAccountName=<user-name>)(department=SMS))
+;Filter=(&(sAMAccountName=<user-name>)(department=SMS)|(department=HR))
+;Filter = (|(department=HR)(department=SMS))
+Attributes = AttrList
+Timeout = 20
+%DN=dn

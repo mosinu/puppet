@@ -1,0 +1,14 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias DBACMDS = /bin/su oracle , /bin/su - oracle , /bin/su applmgr , /bin/su - applmgr , /opt/oracle/home/oraInventory/orainstRoot.sh , /bin/su mysql , /bin/su - mysql
+%unix-oracle-dba ALL = (root) NOPASSWD : DBACMDS
+

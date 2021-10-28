@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias PPM_CMDS = /bin/su mitg, /bin/su - mitg, /bin/chown -R mitg.mitg /opt/mitg/*
+
+%unix-ppm-admin ALL = (root) NOPASSWD : PPM_CMDS
+

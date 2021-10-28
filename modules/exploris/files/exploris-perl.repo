@@ -1,0 +1,7 @@
+[exploris-perl]
+name=ExplorisPerl
+baseurl=http://ral-repo01/cobbler/repo_mirror/exploris-perl/
+enabled=1
+priority=99
+gpgcheck=0
+

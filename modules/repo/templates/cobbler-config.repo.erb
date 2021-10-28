@@ -1,0 +1,55 @@
+[core-0]
+name=core-0
+baseurl=http://<%= yumserver %>/cobbler/ks_mirror/rhel-<%= operatingsystemrelease %>-<%= architecture %>
+enabled=1
+gpgcheck=0
+priority=1
+
+[core-1]
+name=core-1
+baseurl=http://<%= yumserver %>/cobbler/ks_mirror/rhel-<%= operatingsystemrelease %>-<%= architecture %>/ClusterStorage
+enabled=0
+gpgcheck=0
+priority=1
+
+[core-2]
+name=core-2
+baseurl=http://<%= yumserver %>/cobbler/ks_mirror/rhel-<%= operatingsystemrelease %>-<%= architecture %>/Server
+enabled=1
+gpgcheck=0
+priority=1
+
+[core-3]
+name=core-3
+baseurl=http://<%= yumserver %>/cobbler/ks_mirror/rhel-<%= operatingsystemrelease %>-<%= architecture %>/Cluster
+enabled=0
+gpgcheck=0
+priority=1
+
+[core-4]
+name=core-4
+baseurl=http://<%= yumserver %>/cobbler/ks_mirror/rhel-<%= operatingsystemrelease %>-<%= architecture %>/VT
+enabled=0
+gpgcheck=0
+priority=1
+
+[Carquest]
+name=Carquest
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Carquest
+enabled=1
+priority=99
+gpgcheck=0
+
+[Carquest-<%= operatingsystemrelease %>]
+name=Carquest
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Carquest-<%= operatingsystemrelease %>
+enabled=1
+priority=99
+gpgcheck=0
+
+[Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>]
+name=Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>
+baseurl=http://<%= yumserver %>/cobbler/repo_mirror/Fedora-EPEL-<%= operatingsystemrelease %>-<%= architecture %>
+enabled=1
+priority=99
+gpgcheck=0

@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+%unix-edi ALL = (root) NOPASSWD : EDI_CMDS
+gpibots ALL = (root) NOPASSWD : EDI_CMDS
+
+Cmnd_Alias EDI_CMDS = /bin/su - gpibots , /bin/su - mysql, /bin/vi /etc/httpd/conf.d/edi.conf, /sbin/service httpd, /etc/rc.d/init.d/httpd, /usr/sbin/apachectl, /usr/bin/tail /var/log/httpd/error_log, /usr/bin/tail /var/log/httpd/access_log, /usr/bin/less /var/log/httpd/access_log, /usr/bin/less /var/log/httpd/error_log,/usr/bin/less /var/log/httpd/, /bin/ls /var/log/httpd/, /usr/bin/du /var/log/httpd/*

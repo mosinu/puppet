@@ -1,0 +1,40 @@
+cd /etc/sysconfig/network-scripts/
+ls
+vim ifcfg-eth0 
+vi ifcfg-eth0 
+cp ifcfg-eth0 ifcfg-eth0:0
+vim ifcfg-eth0:0
+vi ifcfg-eth0:0
+vim /etc/sysconfig/network
+vi /etc/sysconfig/network
+/etc/rc.d/init.d/network restart
+route -n
+ping 10.7.76.1
+ifconfig 
+vi ifcfg-eth0:0
+/etc/rc.d/init.d/network restart
+ifconfig 
+ping 10.7.76.1
+cat /etc/resolv.conf 
+vim /etc/resolv.conf 
+vi /etc/resolv.conf 
+fdisk /dev/sdb
+pvcreate /dev/sdb1
+vgcreate data_vg /dev/sdb1
+lvcreate --extents 100%FREE --name data_lv data_vg
+mkfs.ext4 /dev/data_vg/data_lv
+vim /etc/fstab 
+vi /etc/fstab 
+mkdir /data
+mount -a
+df -h
+cd /etc/yum.repos.d/
+ls
+scp root@dev-puppet01:/etc/yum.repos.d/*.repo .
+/etc/rc.d/init.d/iptables stop
+tail -f /var/log/messages 
+tail -f /var/log/secure 
+vim /etc/sysconfig/selinux 
+vi /etc/sysconfig/selinux 
+iptables -L
+reboot 

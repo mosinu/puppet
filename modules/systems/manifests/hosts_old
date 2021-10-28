@@ -1,0 +1,25 @@
+class systems::hosts {
+
+    file { "/etc/hosts":
+        ensure => present,
+    }
+
+    Host {
+        ensure  => present,
+        require => File["/etc/hosts"],
+    } 
+
+    # localhost
+    host {
+        "localhost.localdomain":
+            ip      => "127.0.0.1",
+	    host_aliases   => [ "localhost", ],
+    }
+     # add /etc/hosts entry for the machine
+     host { 
+	 "$fqdn":
+	     ip     => "$ipaddress",
+	     host_aliases  => [ "$hostname", ],
+     } 
+}
+

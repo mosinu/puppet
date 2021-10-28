@@ -1,0 +1,29 @@
+{
+  "checksums": {
+    "manifests/mount.pp": "c847306968bf0418d1c8824aa744d677",
+    "manifests/mapfile.pp": "25af7ddf532a46dc754d515890f159bd",
+    "manifests/init.pp": "b0d251fb761ac393d90a969b6acad914",
+    "Modulefile": "7cc887e1d5de60fb4fc26270bbc20328",
+    "manifests/params.pp": "472056f61861c74f70324bd979ca23ff",
+    "README.md": "8406bab2e0d5a85ded3c452ab5f9ce6a",
+    "LICENSE": "534946505bbef4fb32c5bd699040d1e4",
+    "manifests/include.pp": "d44345b5889c846466aa23cfa68b3937"
+  },
+  "description": "Autofs module for puppet",
+  "license": "Apache License 2.0",
+  "author": "Reid Vandewiele",
+  "source": "https://github.com/pdxcat/puppet-module-autofs",
+  "types": [
+
+  ],
+  "project_page": "https://github.com/pdxcat/puppet-module-autofs",
+  "summary": "Autofs module for puppet",
+  "name": "puppet-module-autofs",
+  "dependencies": [
+    {
+      "version_requirement": ">= 0.1.0",
+      "name": "ripienaar/concat"
+    }
+  ],
+  "version": "0.0.2"
+}

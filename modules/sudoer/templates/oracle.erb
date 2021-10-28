@@ -1,0 +1,14 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias ORACLE_CMDS = /opt/oracle/home/oraInventory/orainstRoot.sh , /bin/chown -R oracle.dba /opt/oracle/* , /bin/chown -R oracle.dba /opt/NAS/oracle_patches/oracle/*
+
+oracle ALL = (root) NOPASSWD : ORACLE_CMDS

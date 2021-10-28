@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias WILYADM_CMDS = /bin/su wilyadm , /bin/su - wilyadm, /bin/chown wilyadm.wilyadm /opt/wily*, /bin/chown -R wilyadm.wilyadm /opt/wily*
+
+%unix-middleware ALL = (root) NOPASSWD : WILYADM_CMDS
+

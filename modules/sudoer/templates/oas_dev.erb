@@ -1,0 +1,14 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias OAS_DEV_CMDS = /bin/su applmgr , /bin/su - applmgr
+%unix-oracle-application-support ALL = (root) NOPASSWD : OAS_DEV_CMDS
+

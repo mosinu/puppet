@@ -1,0 +1,18 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias WASADMIN_ADMIN_CMDS = /bin/su wasadmin , /bin/su - wasadmin , /usr/bin/xauth * , /opt/IBM/InstallationManager/eclipse/* , /opt/IBM/ibmim/* , /opt/IBM/WebSphere/Toolbox/WCT/* , /opt/IBM/HTTPServer/bin/*, /bin/netstat *
+Cmnd_Alias WASADMIN_APP_ADMIN_CMDS = /bin/sh 
+Cmnd_Alias WASADMIN_APP_CMDS = /bin/su wasadmin , /bin/su - wasadmin , /usr/bin/xauth * , /opt/IBM/InstallationManager/eclipse/* , /opt/IBM/ibmim/* , /opt/IBM/WebSphere/Toolbox/WCT/* , /opt/IBM/HTTPServer/bin/*, /bin/netstat *
+
+%wasadmin ALL = (root) NOPASSWD : WASADMIN_APP_CMDS
+%unix-middleware ALL = (root) NOPASSWD : WASADMIN_ADMIN_CMDS
+%unix-middleware ALL = (wasadmin) NOPASSWD : WASADMIN_APP_ADMIN_CMDS

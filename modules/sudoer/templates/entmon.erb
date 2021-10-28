@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias ENTMON_CMDS = /bin/su ehealth, /bin/su - ehealth, /bin/su spectrum, /bin/su - spectrum, /bin/su cabiadm, /bin/su - cabiadm, /bin/su - dsa, /bin/su dsa
+
+%unix-enterprise-monitoring ALL = (root) NOPASSWD : ENTMON_CMDS
+

@@ -1,0 +1,13 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias CABI_CMDS = /opt/iso/cabiinstall.sh, /opt/CA/SharedComponents/CommonReporting3/bobje/init/setupinit.sh, /etc/init.d/BobjEnterprise120 start, /etc/init.d/BobjEnterprise120 stop, /bin/mount -o loop /opt/NAS/CA/iso/* /opt/iso/*, /bin/umount /opt/iso/*, /opt/tmp/cabi/biconfig/*, /bin/cp /opt/iso/Disk1/* /opt/tmp/, /bin/cp -r /opt/iso/Disk1/* /opt/tmp/, /bin/rm /opt/tmp/*, /opt/tmp/nvm_boxi_post_install_unix.sh, /bin/tar -xzvf /opt/tmp/cafdeploy*, /opt/tmp/cafdeploy*, /sbin/reboot
+cabiadm ALL = (root) NOPASSWD : CABI_CMDS

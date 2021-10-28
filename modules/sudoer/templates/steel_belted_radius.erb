@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias STEEL_BELTED_RADUIS_CMDS = /opt/JNPRsbr/radius/install/configure, /opt/JNPRsbr/radius/sbrd start, /opt/JNPRsbr/radius/sbrd stop, /opt/JNPRsbr/radius/sbrd restart, /bin/echo * > /opt/JNPRsbr/radius/initial_admin_account.dat
+
+radiusd ALL = (root) NOPASSWD : STEEL_BELTED_RADUIS_CMDS
+

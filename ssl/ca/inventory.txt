@@ -1,0 +1,4 @@
+# Inventory of signed certificates
+# SERIAL NOT_BEFORE NOT_AFTER SUBJECT
+0x0001 2012-06-25T13:43:25GMT 2017-06-25T13:43:25GMT /CN=Puppet CA: dev-puppet01.gpi.com
+0x0002 2012-06-25T13:43:25GMT 2017-06-25T13:43:25GMT /CN=dev-puppet01.gpi.com

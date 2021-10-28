@@ -1,0 +1,16 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias NETOPS_CMDS = /bin/su - radiusd, /bin/su radiusd
+
+%netops ALL = (root) NOPASSWD : NETOPS_CMDS
+%unix-network-operations ALL = (root) NOPASSWD : NETOPS_CMDS
+

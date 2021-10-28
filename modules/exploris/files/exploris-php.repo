@@ -1,0 +1,7 @@
+[exploris-php]
+name=ExplorisPHP
+baseurl=http://ral-repo01/cobbler/repo_mirror/exploris-php/
+enabled=1
+priority=99
+gpgcheck=0
+

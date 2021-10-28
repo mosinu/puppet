@@ -1,0 +1,41 @@
+{
+  "license": "Apache 2.0",
+  "version": "4.1.0",
+  "project_page": "https://github.com/razorsedge/puppet-vmwaretools",
+  "source": "git://github.com/razorsedge/puppet-vmwaretools.git",
+  "description": "This module manages the installation of the VMware Operating System Specific Packages for VMware tools.\n\nActions:\n\n    Removes old VMwareTools package or runs vmware-uninstall-tools.pl if found.\n    Installs a vmware YUM repository.\n    Installs the OSP.\n    Starts the vmware-tools service.\n\nOS Support:\n    RedHat family\t- tested on CentOS 5.5+ and CentOS 6.2+\n    Fedora\t\t- not supported\n    SuSE family\t\t- untested (initial support for yumrepo) (patches welcome)\n    Ubuntu\t\t- presently unsupported (patches welcome)\n    Debian\t\t- presently unsupported (patches welcome)\n\nClass documentation is available via puppetdoc.",
+  "summary": "Puppet module to manage VMware Operating System Specific Packages for VMware tools installation.",
+  "author": "razorsedge",
+  "name": "razorsedge-vmwaretools",
+  "dependencies": [
+    {
+      "version_requirement": ">=2.1.0",
+      "name": "puppetlabs/stdlib"
+    }
+  ],
+  "checksums": {
+    "spec/fixtures/manifests/site.pp": "d41d8cd98f00b204e9800998ecf8427e",
+    "Modulefile": "c68892435aa33989e8cd6403271ce23e",
+    "manifests/ntp.pp": "cb574879972c0a9f8eb4a0843fd4be19",
+    "tests/ntp_topscope.pp": "1e3af82a8d74e87022974a1d4f7db25e",
+    "spec/classes/vmwaretools_spec.rb": "c6b0e6ce3ba519d5f85b0fbac62aa866",
+    "README.md": "ff2a1947d1260bea93da5759ee2d4d4e",
+    "tests/init_class.pp": "b534e8b00253ee1755dc098879e3a862",
+    "Gemfile": "c4a766a30c62dcb2cc813a7493e46af8",
+    "manifests/init.pp": "9e9178f079b2ca6597a5fdbde0861ff6",
+    "tests/ntp.pp": "e6eeb1d254944407ad354842e97f7c01",
+    "tests/ntp_class.pp": "9e593eb003ad841d09742ed1dd41a69d",
+    "spec/classes/vmwaretools_ntp_spec.rb": "e2af2f41385425c283e34cf23bd2a62a",
+    "tests/init.pp": "70cebc7cdbbb3ae4179c07b5939435af",
+    "spec/spec_helper.rb": "792eeb7aa7edafb93e2bc1d27c5e75c5",
+    "TODO": "a73f97affa5f40b941c6f91863e1311c",
+    "Rakefile": "3bdac22fafcb9f2ef4dc17499bea810d",
+    "LICENSE": "4f960dc2fd2d219b183be6460aa70af3",
+    "tests/init_topscope.pp": "0fc5e9c3825a93cafaff215bedd64e25",
+    "manifests/params.pp": "bfb6e1d04d8ef11d70eb3b88230f563b",
+    "metadata.json": "f8ee7d0f27899c17089b9735df3a68d0"
+  },
+  "types": [
+
+  ]
+}

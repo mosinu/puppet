@@ -1,0 +1,15 @@
+#
+## THIS FILE IS MANAGED BY PUPPET
+##
+##    <%= puppetserver %>
+##
+## CHANGES TO THIS FILE WILL BE OVERWRITTEN
+##
+## <%= environment %>
+##
+##
+#
+Cmnd_Alias SERVICES = /sbin/service, /sbin/chkconfig, /bin/hostname, /sbin/shutdown
+
+t10253 ALL = (root) NOPASSWD : SERVICES
+

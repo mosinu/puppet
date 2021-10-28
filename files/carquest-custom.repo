@@ -1,0 +1,8 @@
+# DEFAULT PROVISION ENVIRONMENT
+[Carquest]
+name=carquest-build
+baseurl=http://ral-puppet01.gpi.com/cobbler/repo_mirror/carquest-build
+enabled=1
+priority=99
+gpgcheck=0
+
